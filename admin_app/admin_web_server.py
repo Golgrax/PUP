@@ -13,38 +13,39 @@ def create_admin_page(products):
         meta(charset="UTF-8")
         link(href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css", rel="stylesheet")
 
-    with doc.body(cls="bg-gray-200 p-8"):
-        img(src="/static/images/pup_logo.png", cls="mx-auto h-16 w-16 mb-4")
-        h1("INVENTORY MANAGEMENT", cls="text-3xl font-bold text-center text-[#722F37] mb-6 border-b-2 border-[#722F37] pb-2")
+    # CORRECTED: Changed cls to class_
+    with doc.body(class_="bg-gray-200 p-8"):
+        img(src="/static/images/pup_logo.png", class_="mx-auto h-16 w-16 mb-4")
+        h1("INVENTORY MANAGEMENT", class_="text-3xl font-bold text-center text-[#722F37] mb-6 border-b-2 border-[#722F37] pb-2")
         
         # Form for CRUD operations
-        with form(action="/add", method="POST", cls="bg-white p-6 rounded-lg shadow-md mb-8"):
-            with div(cls="grid grid-cols-1 md:grid-cols-2 gap-4"):
-                div(label("ITEM ID (for Update/Delete):", _for="item_id", cls="font-bold"), input_(type="text", name="item_id", id="item_id", cls="p-2 border rounded w-full"))
-                div(label("ITEM NAME:", _for="item_name", cls="font-bold"), input_(type="text", name="item_name", id="item_name", required=True, cls="p-2 border rounded w-full"))
-                div(label("QUANTITY:", _for="quantity", cls="font-bold"), input_(type="number", name="quantity", id="quantity", required=True, cls="p-2 border rounded w-full"))
-                div(label("PRICE:", _for="price", cls="font-bold"), input_(type="text", name="price", id="price", required=True, cls="p-2 border rounded w-full"))
+        with form(action="/add", method="POST", class_="bg-white p-6 rounded-lg shadow-md mb-8"):
+            with div(class_="grid grid-cols-1 md:grid-cols-2 gap-4"):
+                div(label("ITEM ID (for Update/Delete):", _for="item_id", class_="font-bold"), input_(type="text", name="item_id", id="item_id", class_="p-2 border rounded w-full"))
+                div(label("ITEM NAME:", _for="item_name", class_="font-bold"), input_(type="text", name="item_name", id="item_name", required=True, class_="p-2 border rounded w-full"))
+                div(label("QUANTITY:", _for="quantity", class_="font-bold"), input_(type="number", name="quantity", id="quantity", required=True, class_="p-2 border rounded w-full"))
+                div(label("PRICE:", _for="price", class_="font-bold"), input_(type="text", name="price", id="price", required=True, class_="p-2 border rounded w-full"))
             
-            with div(cls="flex justify-center space-x-4 mt-6"):
-                button("Add Item", type="submit", formaction="/add", formmethod="post", cls="bg-green-600 text-white px-6 py-2 rounded-lg")
-                button("Update Item", type="submit", formaction="/update", formmethod="post", cls="bg-blue-600 text-white px-6 py-2 rounded-lg")
-                button("Delete Item", type="submit", formaction="/delete", formmethod="post", cls="bg-red-600 text-white px-6 py-2 rounded-lg")
+            with div(class_="flex justify-center space-x-4 mt-6"):
+                button("Add Item", type="submit", formaction="/add", formmethod="post", class_="bg-green-600 text-white px-6 py-2 rounded-lg")
+                button("Update Item", type="submit", formaction="/update", formmethod="post", class_="bg-blue-600 text-white px-6 py-2 rounded-lg")
+                button("Delete Item", type="submit", formaction="/delete", formmethod="post", class_="bg-red-600 text-white px-6 py-2 rounded-lg")
 
         # Table of existing inventory
-        with table(cls="w-full bg-white rounded-lg shadow-md"):
-            with thead(cls="bg-[#722F37] text-white"):
+        with table(class_="w-full bg-white rounded-lg shadow-md"):
+            with thead(class_="bg-[#722F37] text-white"):
                 with tr():
-                    th("ID", cls="p-3")
-                    th("NAME", cls="p-3")
-                    th("QUANTITY", cls="p-3")
-                    th("PRICE", cls="p-3")
+                    th("ID", class_="p-3")
+                    th("NAME", class_="p-3")
+                    th("QUANTITY", class_="p-3")
+                    th("PRICE", class_="p-3")
             with tbody():
                 for p in products:
-                    with tr(cls="border-b hover:bg-gray-100"):
-                        td(p['id'], cls="p-3")
-                        td(p['name'], cls="p-3")
-                        td(p['stock'], cls="p-3")
-                        td(f"₱{p['price']:.2f}", cls="p-3")
+                    with tr(class_="border-b hover:bg-gray-100"):
+                        td(p['id'], class_="p-3")
+                        td(p['name'], class_="p-3")
+                        td(p['stock'], class_="p-3")
+                        td(f"₱{p['price']:.2f}", class_="p-3")
     return doc.render()
 
 @app.route("/")

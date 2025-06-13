@@ -10,7 +10,7 @@ import hashlib
 DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'your_password', # <-- CHANGE THIS
+    'password': 'Test1234!', # <-- CHANGE THIS
     'database': 'pup_shop'
 }
 
