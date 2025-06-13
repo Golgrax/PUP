@@ -1,0 +1,9 @@
+/* assets/css/style.css */
+@font-face {
+    font-family: 'RocaOne';
+    src: url('/static/fonts/RocaOne.ttf') format('truetype');
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, button, input, label, span, div {
+    font-family: 'RocaOne', sans-serif;
+}

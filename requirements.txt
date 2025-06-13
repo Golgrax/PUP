@@ -1,0 +1,5 @@
+Flask
+tkinterweb
+dominate
+mysql-connector-python
+Pillow
